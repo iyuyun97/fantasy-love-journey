@@ -1,0 +1,33 @@
+﻿==================================================
+ LAPORAN STRUKTUR PROYEK FANTASY LOVE JOURNEY
+ Waktu Pindai: 11/18/2026 04:37:19
+ Lokasi Root: C:\Users\user\OneDrive\Documents\love
+==================================================
+
+DAFTAR DIREKTORI DAN FILE:
+--------------------------------------------------
+[DIR]  \.venv
+[DIR]  \static
+[DIR]  \templates
+[FILE] \app.py
+[FILE] \Find-Scenes.ps1
+[FILE] \Fix-And-Check-Scenes.ps1
+[FILE] \struktur-folder.txt
+[DIR]  \static\css
+[DIR]  \static\js
+[FILE] \static\css\style.css
+[FILE] \static\js\scene-1.js
+[FILE] \static\js\scene2-3d.js
+[FILE] \static\js\scene2.js
+[FILE] \static\js\scene3.js
+[FILE] \static\js\scene4-libra.js
+[FILE] \static\js\scene4-scales.js
+[FILE] \static\js\scene5-scales.js
+[FILE] \static\js\scene6-archer.js
+[FILE] \static\js\scene7-rose.js
+[FILE] \static\js\ui-controller.js
+[FILE] \templates\index.html
+
+--------------------------------------------------
+Total File & Folder ditemukan: 21
+==================================================

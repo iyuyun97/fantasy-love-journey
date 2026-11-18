@@ -1,0 +1,541 @@
+/* ==========================================
+   FANTASY LOVE JOURNEY
+   MAIN STYLESHEET
+========================================== */
+
+/* RESET & BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #050816;
+  color: #ffffff;
+}
+
+/* ==========================================
+   CANVAS SCENE 1 - UNIVERSE
+========================================== */
+
+#universe {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==========================================
+   CANVAS SCENE 2 - KNIGHT
+========================================== */
+
+#knight3DCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#knight3DCanvas.active {
+  opacity: 1;
+}
+
+/* ==========================================
+   CANVAS SCENE 3 - JWST UNIVERSE
+   SCENE 4 - LIBRA
+   SCENE 5 - SCALES
+   SCENE 6 - ARCHER
+   SCENE 7 - ROSE
+========================================== */
+
+#universe3DCanvas,
+#libraCanvas,
+#scalesCanvas,
+#archerCanvas,
+#roseCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: 2;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.container > * {
+  pointer-events: auto;
+}
+
+/* ==========================================
+   GLOW CIRCLE
+========================================== */
+
+.glow-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(5, 8, 22, 0) 70%
+  );
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulseGlow 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   SCENE 1 - LANDING PAGE
+========================================== */
+
+#scene1Content,
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90%, 700px);
+  max-width: 700px;
+  text-align: center;
+  z-index: 10;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.content {
+  animation: scene1FadeIn 0.8s ease forwards;
+}
+
+@keyframes scene1FadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: #93c5fd;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.content h1,
+#title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+#title span {
+  color: #f59e0b;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+.content p,
+#description {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+/* Landing page hidden */
+#scene1Content.scene-hidden {
+  animation: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+#startButton,
+.action-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+#startButton:hover,
+.action-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+  margin-top: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #64748b;
+}
+
+/* ==========================================
+   DIALOGUE BOX
+   NARASI DIKENDALIKAN OLEH UI-CONTROLLER.JS
+========================================== */
+
+.dialogue-box {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+
+  width: 1500px;
+  max-width: 95vw;
+  min-height: 55px;
+  height: 55px;
+
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
+
+  padding: 0 25px;
+
+  z-index: 100;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.5s ease;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  overflow: hidden;
+}
+
+/* Dialogue aktif */
+.dialogue-box.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Isi dialogue */
+.knight-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.knight-subtitle {
+  display: none;
+}
+
+.dialogue-box h2 {
+  display: none;
+}
+
+/* Teks narasi */
+.dialogue-box p {
+  flex: 1;
+  min-width: 0;
+
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+
+  margin: 0;
+  text-align: left;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tombol dialogue */
+.dialogue-box button {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+
+  padding: 8px 20px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialogue-box button:hover {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+  .content,
+  #scene1Content {
+    width: 90%;
+  }
+
+  .content h1,
+  #title {
+    font-size: 2.2rem;
+  }
+
+  .content p,
+  #description {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  #startButton {
+    padding: 11px 23px;
+    font-size: 0.8rem;
+  }
+
+  .dialogue-box {
+    width: 94vw;
+    min-height: 65px;
+    height: auto;
+
+    bottom: 15px;
+    padding: 10px 12px;
+
+    gap: 10px;
+  }
+
+  .knight-content {
+    gap: 10px;
+  }
+
+  .dialogue-box p {
+    white-space: normal;
+    font-size: 0.78rem;
+  }
+
+  .dialogue-box button {
+    padding: 7px 13px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .content h1,
+  #title {
+    font-size: 2rem;
+  }
+
+  .dialogue-box {
+    width: 94vw;
+    bottom: 10px;
+  }
+
+  .dialogue-box p {
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================
+   SCENE 7 - ROSE DIALOGUE
+   Pengaturan visual dialog dan tombol
+========================================== */
+
+.dialogue-box.scene7-dialogue {
+  width: min(900px, 95vw);
+  max-width: 95vw;
+  min-height: 110px;
+  height: 110px;
+
+  bottom: 40px;
+  padding: 20px 35px;
+
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 2px solid rgba(244, 63, 94, 0.6);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  overflow: visible;
+  z-index: 1000;
+}
+
+/* Sembunyikan tombol Lanjut di Scene 7 */
+.dialogue-box.scene7-dialogue #continueButton {
+  display: none;
+}
+
+/* Teks narasi Scene 7 */
+.dialogue-box.scene7-dialogue p {
+  white-space: normal;
+  font-size: 1.05rem;
+  line-height: 1.5;
+
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+
+/* Area tombol YA */
+.scene7-button-area {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.scene7-button-area.is-hidden {
+  display: none;
+}
+
+/* Tampilan tombol */
+.action-btn {
+  flex-shrink: 0;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.action-btn--yes {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+}
+
+.action-btn--no {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+}
+
+/* Tombol TIDAK bergerak bebas di viewport */
+.scene7-no-button {
+  position: fixed;
+  z-index: 9999;
+  transition: all 0.05s ease-in-out;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .dialogue-box.scene7-dialogue {
+    width: 94vw;
+    height: auto;
+    min-height: 110px;
+
+    bottom: 15px;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .dialogue-box.scene7-dialogue .knight-content {
+    gap: 10px;
+  }
+
+  .dialogue-box.scene7-dialogue p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .scene7-button-area {
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+}

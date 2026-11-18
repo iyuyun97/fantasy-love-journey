@@ -1,0 +1,141 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SORRY</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Canvas khusus 2D untuk Scene 1 (Background Bintang) -->
+    <canvas
+      id="universe"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      "
+    ></canvas>
+
+    <!-- Canvas khusus 3D untuk Scene 2 sampai 7 (Three.js) -->
+    <canvas
+      id="knight3DCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    ></canvas>
+
+    <!-- Canvas khusus Scene 3: JWST Universe -->
+    <canvas
+      id="universe3DCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    ></canvas>
+    <!-- Canvas khusus Scene 4 (Libra Constellation) -->
+    <canvas
+      id="libraCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    >
+    </canvas>
+
+    <!-- Canvas khusus Scene 5: Mythological Scales -->
+    <canvas
+      id="scalesCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    ></canvas>
+
+    <!-- Canvas khusus Scene 6: Archer -->
+    <canvas
+      id="archerCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    ></canvas>
+
+    <!-- Canvas khusus Scene 7: Rose -->
+    <canvas
+      id="roseCanvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        pointer-events: none;
+        display: none;
+      "
+    ></canvas>
+    <!-- Konten dan UI Utama -->
+    <div
+      class="content"
+      id="scene1Content"
+      style="position: relative; z-index: 10"
+    >
+      <h1>Hallo Adik Kecil! 😊</h1>
+      <p>Anda akan melakukan Tour perjalanan Luar Angkasa.</p>
+      <button id="startButton" class="action-btn">Mulai Perjalanan</button>
+    </div>
+
+    <!-- Kotak Dialog Narasi dan Aksi -->
+    <div id="dialogueBox" class="dialogue-box">
+      <div class="knight-content">
+        <p id="dialogueText"></p>
+        <button id="continueButton" class="action-btn">Lanjut ➔</button>
+      </div>
+    </div>
+
+    <!-- Main Controller -->
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/ui-controller.js') }}"
+    ></script>
+  </body>
+</html>

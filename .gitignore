@@ -1,0 +1,26 @@
+﻿# Python environment
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and user responses
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup folders and backup files
+backup*/
+*.backup
+*.backup_*
+
+# Local development
+.vercel/
+.DS_Store
+Thumbs.db
